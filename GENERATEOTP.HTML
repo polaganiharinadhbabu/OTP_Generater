@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENERATE OTP</title>
+</head>
+<body>
+    <h1>Generate OTP</h1>
+    <script>
+        function generateOTP() {
+            const otp = Math.floor(Math.random() * 9000) + 1000;
+            console.log(otp);
+        }
+
+        function OTPHandling() {
+            let count = 0;
+            generateOTP();
+            count++;
+
+            const otpInterval = setInterval(() => {
+                generateOTP();
+                count++;
+
+                if (count === 5) {
+                    clearInterval(otpInterval);
+                    console.log("stopped");
+                }
+            }, 3000);
+        }
+
+        OTPHandling();
+    </script>
+</body>
+</html>
